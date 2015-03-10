@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Links App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="app.css">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+
+    <script src="data/links.js"></script>
+
+    <script src="app.js"></script>
+
+</head>
+<body ng-app="fulgurator">
+
+<!--<div ng-controller="LinksCtrl">
+
+    <input ng-model="searchText" placeholder="Die globale Suche" class="input-sm form-control searchfield" type="search"/>
+
+    <div class="row">
+        <div ng-repeat="group in rowCollection" class="col-md-2">
+
+            <table ng-class="['linkTable-' + $index]" st-table="rowCollection" class="table table-striped">
+                <thead class="tableTitle">
+                <tr>
+                    <th st-sort="name">{{group.groupname}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in group.grouplinks | filter:searchText">
+                    <td><a ng-href="{{row.link}}">{{row.name}}</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+<a href='#settings'>Settings</a>-->
+
+<div class="">
+    <div ng-view=""></div>
+</div>
+
+
+</body>
+</html>

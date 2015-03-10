@@ -1,0 +1,32 @@
+[
+  {
+    "groupname": "Betrieb",
+    "grouplinks": [
+      {
+        "name": "GreenNet",
+        "tag": "rednet mobiliar rn",
+        "link": "https://www.google.ch"
+      },
+      {
+        "name": "GreenNet22",
+        "tag": "rednet mobiliar rn22",
+        "link": "https://www.google.ch22"
+      }
+    ]
+  },
+  {
+    "groupname": "Allgemein",
+    "grouplinks": [
+      {
+        "name": "BlaBla",
+        "tag": "rednet1 mobiliar blabla bb",
+        "link": "https://www.admin.ch"
+      },
+      {
+        "name": "BlaBla1",
+        "tag": "rednet11 mobiliar blabla bb11",
+        "link": "https://www.admin.ch"
+      }
+    ]
+  }
+]

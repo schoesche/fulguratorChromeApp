@@ -1,0 +1,26 @@
+/* app css stylesheet */
+
+body {
+  padding: 10px !important;
+}
+
+.fulgurator-title {
+  font-size: medium;
+  margin-bottom: 20px;
+  background-color: #343132;
+  box-shadow: 0.5em 0 0 #343132,-0.5em 0 0 #343132;
+
+}
+
+.searchfield {
+  margin-bottom: 10px;
+}
+
+.tableTitle {
+  color: #FFFFFF;
+  background-color: #FF0000;
+}
+
+
+
+
