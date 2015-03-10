@@ -1,6 +1,6 @@
 {
-   "name": "Georg's erstes Beispiel",
-  "description": "This extension shows a Google Image search result for the current page",
+   "name": "Fulgurator",
+  "description": "Link-Manager Chrome App",
   "version": "0.0.1",
 
   "manifest_version": 2,
