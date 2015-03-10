@@ -1,9 +1,9 @@
-<div ng-controller="LinksCtrl">
+<div data-ng-controller="LinksCtrl as vm">
 
     <input ng-model="searchText" placeholder="Die globale Suche" class="input-sm form-control searchfield" type="search"/>
 
     <div class="row">
-        <div ng-repeat="group in rowCollection" class="col-md-2">
+        <div ng-repeat="group in vm.rowCollection" class="col-md-2">
 
             <table ng-class="['linkTable-' + $index]" st-table="rowCollection" class="table table-striped">
                 <thead class="tableTitle">
