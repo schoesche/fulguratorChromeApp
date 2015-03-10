@@ -1,0 +1,30 @@
+{
+   "name": "Georg's erstes Beispiel",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "0.0.1",
+
+  "manifest_version": 2,
+
+    "app": {
+      "background": {
+        "scripts": ["background.js"]
+      }
+    },
+  "permissions": [
+    {"fileSystem": ["write", "retainEntries", "directory"]},
+    "storage",
+    "fileSystem",
+    "unlimitedStorage"
+  ],
+  "file_handlers": {
+    "text": {
+      "types": [
+        "text"
+      ]
+    }
+  },
+  "icons": {
+    "128": "icon_128.png"
+  }
+
+}
