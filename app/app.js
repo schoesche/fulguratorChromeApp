@@ -23,6 +23,8 @@ angular.module('fulgurator', [
 
     controller('LinksCtrl', ['$scope', '$filter', '$http', 'linksModule', function (scope, filter, http, linksModule) {
 
+        var vm = this;
+
         var loadLinkFile = function () {
             /*
              http.get('links.json')
@@ -32,7 +34,7 @@ angular.module('fulgurator', [
              */
 
 
-            scope.rowCollection = linksModule.allLinks();
+            vm.rowCollection = linksModule.allLinks();
 
 
         }
@@ -40,8 +42,8 @@ angular.module('fulgurator', [
         loadLinkFile();
 
 
-        scope.predicates = ['name', 'tag', 'link'];
-        scope.selectedPredicate = scope.predicates[0];
+       /* vm.predicates = ['name', 'tag', 'link'];
+        vm.selectedPredicate = scope.predicates[0];*/
 
 
     }]).
