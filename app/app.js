@@ -3,7 +3,8 @@
 angular.module('fulgurator', [
     'ngRoute',
     'smart-table',
-    'fulgurator.linksModule'
+    'fulgurator.linksModule',
+    'fulgurator.settings'
 ]).
 
     config(['$routeProvider', function ($routeProvider) {
@@ -21,7 +22,7 @@ angular.module('fulgurator', [
             otherwise({redirectTo: ("/")})
     }]).
 
-    controller('LinksCtrl', ['$scope', '$filter', '$http', 'linksModule', function (scope, filter, http, linksModule) {
+    controller('LinksCtrl', ['$scope', '$filter', '$http', 'linksModule', 'SettingsCtrl', function (scope, filter, http, linksModule, SettingsCtrl) {
 
         var vm = this;
 
@@ -34,7 +35,9 @@ angular.module('fulgurator', [
              */
 
 
-            vm.rowCollection = linksModule.allLinks();
+            /*vm.rowCollection = linksModule.allLinks();*/
+
+            vm.rowCollection = SettingsCtrl.loadLinks();
 
 
         }

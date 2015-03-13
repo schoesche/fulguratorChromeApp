@@ -1,4 +1,4 @@
-<div ng-class="">
+<div ng-class="" data-ng-controller="SettingsCtrl">
     <div>
         hallo welt
     </div>
@@ -10,6 +10,13 @@
             <button data-ng-click="vm.writeLinksFile()">Write File</button>
         </nav>
     </div>
+
+    <form>
+        <input data-ng-model="vmSettings.insert.linkName" placeholder="Set Link Name" class="input-sm form-control" type="text"/>
+        <input data-ng-model="vmSettings.insert.linkTag" placeholder="Set Tags" class="input-sm form-control" type="text"/>
+        <input data-ng-model="vmSettings.insert.linkUrl" placeholder="Set URL" class="input-sm form-control" type="text"/>
+        <button data-ng-click="vmSettings.addLink()">Save Link</button>
+    </form>
 
 
     <a href='#'>Links</a>
