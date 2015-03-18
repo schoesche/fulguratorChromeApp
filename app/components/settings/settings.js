@@ -4,11 +4,13 @@
  */
 
 angular.module('fulgurator.settings',[
-    'fulgurator.linksModule'
+    /*'fulgurator.linksModule'*/
 ]).
 
     controller('SettingsCtrl',['linksModule',function(linksModule){
         var vmSettings = this;
+
+        vmSettings.gugusvariable = "gugus123";
 
         vmSettings.insert = {};
         vmSettings.rowCollection = {};
@@ -19,7 +21,7 @@ angular.module('fulgurator.settings',[
         };
 
         vmSettings.loadLinks = function() {
-            vmSettings.rowCollection = linksModule.allLinks();
+           /* vmSettings.rowCollection = linksModule.allLinks();*/
         };
 
     }]);

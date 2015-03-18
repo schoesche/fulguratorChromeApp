@@ -12,17 +12,19 @@ angular.module('fulgurator', [
             when('/linklist',
             {
                 templateUrl: 'components/linklist/linklist.html',
-                controller: 'LinksCtrl'
+                controller: 'LinksCtrl as vmLinksCtrl'
             }).
             when('/settings',
             {
                 templateUrl: 'components/settings/settings.html',
-                controller: 'SettingsCtrl'
+                controller: 'SettingsCtrl as vmSettings'
+
             }).
             otherwise({redirectTo: ("/linklist")});
     }]).
 
-    controller('LinksCtrl', ['$scope', '$filter', '$http', 'linksModule', 'SettingsCtrl', function (scope, filter, http, linksModule, SettingsCtrl) {
+    /*controller('FulguratorCtrl', ['$scope', '$filter', '$http', 'SettingsCtrl', function (scope, filter, http, SettingsCtrl) {*/
+    controller('FulguratorCtrl', ['$scope', '$filter', function (scope, filter) {
 
         var vm = this;
         vm.testvalue = 'ich bin ein testvalue';
@@ -40,7 +42,7 @@ angular.module('fulgurator', [
 
 
   /*          vm.rowCollection = SettingsCtrl.loadLinks();*/
-
+                vm.testvalue = 'ist das toll';
 
         };
 
