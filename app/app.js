@@ -16,8 +16,9 @@ angular.module('fulgurator', [
             }).
             when('/settings',
             {
-                templateUrl: 'components/settings/settings.html',
-                controller: 'LinksSettingsCtrl'
+                templateUrl: 'components/settings/settings.html'
+                /*,
+                controller: 'LinksSettingsCtrl'*/
             }).
             otherwise({redirectTo: ("/")})
     }]).
@@ -25,8 +26,9 @@ angular.module('fulgurator', [
     controller('LinksCtrl', ['$scope', '$filter', '$http', 'linksModule', 'SettingsCtrl', function (scope, filter, http, linksModule, SettingsCtrl) {
 
         var vm = this;
+        vm.testvalue = 'ich bin ein testvalue';
 
-        var loadLinkFile = function () {
+        vm.loadLinkFile = function () {
             /*
              http.get('links.json')
              .then(function(res){
@@ -42,18 +44,18 @@ angular.module('fulgurator', [
 
         }
 
-        loadLinkFile();
+        vm.loadLinkFile();
 
 
        /* vm.predicates = ['name', 'tag', 'link'];
         vm.selectedPredicate = scope.predicates[0];*/
 
 
-    }]).
+    }])
 
-    controller('LinksSettingsCtrl', ['$scope', '$filter', '$http', 'linksModule', function (scope, filter, http, linksModule) {
+    /*.controller('LinksSettingsCtrl', ['$scope', '$filter', '$http', 'linksModule', function (scope, filter, http, linksModule) {
 
-    }]);
+    }]);*/
 
 
 

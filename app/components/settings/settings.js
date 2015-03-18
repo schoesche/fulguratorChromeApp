@@ -14,11 +14,11 @@ angular.module('fulgurator.settings',[
         vmSettings.rowCollection = {};
 
 
-        var addLink = function() {
+        vmSettings.addLink = function() {
 
         };
 
-        var loadLinks = function() {
+        vmSettings.loadLinks = function() {
             vmSettings.rowCollection = linksModule.allLinks();
         };
 
