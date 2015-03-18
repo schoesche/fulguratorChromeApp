@@ -9,18 +9,17 @@ angular.module('fulgurator', [
 
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
-            when('/',
+            when('/linklist',
             {
                 templateUrl: 'components/linklist/linklist.html',
                 controller: 'LinksCtrl'
             }).
             when('/settings',
             {
-                templateUrl: 'components/settings/settings.html'
-                /*,
-                controller: 'LinksSettingsCtrl'*/
+                templateUrl: 'components/settings/settings.html',
+                controller: 'SettingsCtrl'
             }).
-            otherwise({redirectTo: ("/")})
+            otherwise({redirectTo: ("/linklist")});
     }]).
 
     controller('LinksCtrl', ['$scope', '$filter', '$http', 'linksModule', 'SettingsCtrl', function (scope, filter, http, linksModule, SettingsCtrl) {
@@ -39,23 +38,19 @@ angular.module('fulgurator', [
 
             /*vm.rowCollection = linksModule.allLinks();*/
 
-            vm.rowCollection = SettingsCtrl.loadLinks();
+
+  /*          vm.rowCollection = SettingsCtrl.loadLinks();*/
 
 
-        }
+        };
 
         vm.loadLinkFile();
 
 
-       /* vm.predicates = ['name', 'tag', 'link'];
-        vm.selectedPredicate = scope.predicates[0];*/
+
+    }]);
 
 
-    }])
-
-    /*.controller('LinksSettingsCtrl', ['$scope', '$filter', '$http', 'linksModule', function (scope, filter, http, linksModule) {
-
-    }]);*/
 
 
 
