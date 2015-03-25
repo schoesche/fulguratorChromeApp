@@ -6,10 +6,22 @@ angular.module('fulgurator.settings',[])
         var vmSettings = this;
 
         vmSettings.rowCollection = {};
-        vmSettings.lengthRow = 0;
+
+        vmSettings.insertGroup = {};
+
+
 
         vmSettings.addLink = function() {
 
+        };
+
+        vmSettings.addGroup = function() {
+            var newGroup = {};
+            newGroup.groupname = vmSettings.insertGroup;
+            newGroup.grouplinks = {};
+            vmSettings.rowCollection.push(newGroup);
+            console.log(vmSettings.rowCollection.length);
+            vmSettings.insertGroup = {};
         };
 
         vmSettings.removeGroup = function(index) {

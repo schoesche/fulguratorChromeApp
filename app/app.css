@@ -5,6 +5,8 @@ body {
   font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
   font-size: 100%;
   padding: 10px !important;
+  overflow-y:scroll;
+  height: 500px;
 }
 
 #status {

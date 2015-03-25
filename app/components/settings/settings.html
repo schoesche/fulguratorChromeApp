@@ -1,5 +1,18 @@
 <div data-ng-controller="SettingsCtrl as vmSettings">
 
+    <div class="addGroup">
+        <input data-ng-model="vmSettings.insertGroup" placeholder="Set new group name" class="input-sm form-control" type="text"/>
+        <button class="btn btn-success" data-ng-click="vmSettings.addGroup()">Add Group</button>
+    </div>
+
+    <div class="addElement">
+        <select data-ng-options="group.groupname for group in vmSettings.rowCollection" data-ng-model="vmSettings.selectedGroupOption"></select>
+        <input data-ng-model="vmSettings.insert.name" placeholder="Set Name" class="input-sm form-control" type="text"/>
+        <input data-ng-model="vmSettings.insert.tag" placeholder="Set Tags" class="input-sm form-control" type="text"/>
+        <input data-ng-model="vmSettings.insert.link" placeholder="Set Link" class="input-sm form-control" type="text"/>
+        <button class="btn btn-success" data-ng-click="vmSettings.addLink()">Add Link</button>
+    </div>
+
     <div class="row">
         <div data-ng-repeat="group in vmSettings.rowCollection">
 
