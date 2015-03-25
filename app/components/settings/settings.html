@@ -1,9 +1,16 @@
-<!--<div ng-class="" data-ng-controller="SettingsCtrl as vmSettings">-->
-<div ng-class="">
+<div data-ng-controller="SettingsCtrl as vmSettings">
+
 hallo
     {{vmSettings.gugusvariable}}
 
+    <div>
+        <nav>
+            <button data-ng-click="vmSettings.readFile()">Read File</button>
+            <button data-ng-click="vmSettings.writeLinksFile()">Write File</button>
+        </nav>
     </div>
+
+</div>
 
 <!--
 <div ng-class="" data-ng-controller="SettingsCtrl">
