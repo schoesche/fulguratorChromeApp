@@ -1,7 +1,4 @@
 'use strict;'
-/**
- * Created by U116064 on 11.03.2015.
- */
 
 angular.module('fulgurator.settings',[
 

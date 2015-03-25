@@ -1,6 +1,5 @@
-/**
- * Created by U116064 on 18.03.2015.
- */
+'use strict;'
+
 angular.module('fulgurator.linksModule',['fulgurator.linksModuleData'])
 
 
