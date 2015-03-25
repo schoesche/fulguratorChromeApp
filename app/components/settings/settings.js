@@ -9,7 +9,10 @@ angular.module('fulgurator.settings',[])
 
         vmSettings.insertGroup = {};
 
-
+        vmSettings.insert = {};
+        vmSettings.insert.name = "";
+        vmSettings.insert.tag = "";
+        vmSettings.insert.link = "";
 
         vmSettings.addLink = function() {
 
