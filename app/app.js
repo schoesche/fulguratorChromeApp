@@ -4,6 +4,7 @@ angular.module('fulgurator', [
     'ngRoute',
     'smart-table',
     'fulgurator.linksModule',
+    'fulgurator.linksModuleData',
     'fulgurator.settings'
 ]).
 

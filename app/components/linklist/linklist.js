@@ -1,13 +1,22 @@
 /**
  * Created by U116064 on 18.03.2015.
  */
-angular.module('fulgurator.linksModule',[]).
+angular.module('fulgurator.linksModule',['fulgurator.linksModuleData'])
 
-    controller('LinksCtrl',[function(linksModule){
+
+    .controller('LinksCtrl',['linksModuleData', function(linksModuleData){
         var vmLinksCtrl = this;
 
-        vmLinksCtrl.gugusvariable = "ichbingugus";
+        vmLinksCtrl.rowCollection = {};
 
-       /* vmLinksCtrl.rowCollection = SettingsCtrl.loadLinks();*/
+
+        vmLinksCtrl.loadLinkFile = function () {
+
+            vmLinksCtrl.rowCollection = linksModuleData.allLinks();
+
+        };
+
+        vmLinksCtrl.loadLinkFile();
+
 
     }]);

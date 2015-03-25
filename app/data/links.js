@@ -1,11 +1,11 @@
 'use strict';
 
 
-angular.module('fulgurator.linksModule', [])
+angular.module('fulgurator.linksModuleData', [])
 
 
 
-    .value('linksModule', {
+    .value('linksModuleData', {
         allLinks: function() {
 
             var rowCollection = [
@@ -14,12 +14,12 @@ angular.module('fulgurator.linksModule', [])
                     "grouplinks": [
                         {
                             "name": "google",
-                            "tag": "google",
+                            "tag": "google 2",
                             "link": "https://www.google.ch"
                         },
                         {
                             "name": "google",
-                            "tag": "google",
+                            "tag": "google 1",
                             "link": "https://www.google.ch"
                         }
                     ]
@@ -29,12 +29,12 @@ angular.module('fulgurator.linksModule', [])
                     "grouplinks": [
                         {
                             "name": "google",
-                            "tag": "google",
+                            "tag": "google 3",
                             "link": "https://www.google.ch"
                         },
                         {
                             "name": "google",
-                            "tag": "google",
+                            "tag": "google 2",
                             "link": "https://www.google.ch"
                         }
                     ]
