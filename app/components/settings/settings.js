@@ -12,6 +12,16 @@ angular.module('fulgurator.settings',[])
 
         };
 
+        vmSettings.removeGroup = function(index) {
+            console.log("group :" + index);
+            vmSettings.rowCollection.splice(vmSettings.rowCollection.indexOf(index), 1);
+        }
+
+        vmSettings.removeLink = function(groupIndex , rowIndex) {
+            console.log("group :" + groupIndex + " row :" + rowIndex);
+            vmSettings.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
+        };
+
         vmSettings.loadLinks = function() {
            vmSettings.rowCollection = linksModuleData.allLinks();
             vmSettings.lengthRow = vmSettings.rowCollection.length;

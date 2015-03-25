@@ -12,6 +12,7 @@
                     <th st-sort="name">name</th>
                     <th st-sort="link">link</th>
                     <th st-sort="tag">tag</th>
+                    <td><button class="btn btn-danger" ng-click="vmSettings.removeGroup($index)">-</button></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -19,6 +20,7 @@
                     <td>{{row.name}}</td>
                     <td>{{row.link}}</td>
                     <td>{{row.tag}}</td>
+                    <td><button class="btn btn-danger" ng-click="vmSettings.removeLink(vmSettings.rowCollection.indexOf(group),$index)">-</button></td>
                 </tr>
                 </tbody>
             </table>
