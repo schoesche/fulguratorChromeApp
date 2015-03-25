@@ -1,7 +1,7 @@
 <div data-ng-controller="SettingsCtrl as vmSettings">
 
     <div class="row">
-        <div data-ng-repeat="row in vmSettings.rowCollection">
+        <div data-ng-repeat="group in vmSettings.rowCollection">
 
             <table ng-class="['linkTable-' + $index]" st-table="rowCollection" class="table table-striped">
                 <thead class="tableTitle">
@@ -9,9 +9,9 @@
                 <th st-sort="name">{{group.groupname}}</th>
                 </tr>-->
                 <tr>
-                    <th st-sort="name">{{group.groupname}}</th>
-                    <th st-sort="link">{{group.groupname}}</th>
-                    <th st-sort="tag">{{group.groupname}}</th>
+                    <th st-sort="name">name</th>
+                    <th st-sort="link">link</th>
+                    <th st-sort="tag">tag</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +27,8 @@
     </div>
 
     <div>hallo</div>
+
+    {{vmSettings.lengthRow}}
 
     <div>
         <nav>

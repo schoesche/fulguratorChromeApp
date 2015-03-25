@@ -1,13 +1,12 @@
 'use strict;'
 
-angular.module('fulgurator.settings',[
+angular.module('fulgurator.settings',[])
 
-]).
-
-    controller('SettingsCtrl',['linksModuleData', function(linksModuleData){
+    .controller('SettingsCtrl',['linksModuleData', function(linksModuleData){
         var vmSettings = this;
 
         vmSettings.rowCollection = {};
+        vmSettings.lengthRow = 0;
 
         vmSettings.addLink = function() {
 
@@ -15,6 +14,7 @@ angular.module('fulgurator.settings',[
 
         vmSettings.loadLinks = function() {
            vmSettings.rowCollection = linksModuleData.allLinks();
+            vmSettings.lengthRow = vmSettings.rowCollection.length;
         };
 
         vmSettings.writeLinksFile = function() {
