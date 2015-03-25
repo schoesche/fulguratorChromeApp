@@ -29,18 +29,30 @@
 <!--  <link rel="stylesheet" href="popup.css"/>-->
 
 <!--  <script src="components/allerhand/zip.js"></script>-->
-  <script src="components/settings/settings.js"></script>
-  <script src="components/linklist/linklist.js"></script>
+
 
  <!-- <script src="components/filemanipulator/filemanipulator.js"></script>-->
   <script src="data/links.js"></script>
 
   <script src="app.js"></script>
+  <script src="components/settings/settings.js"></script>
+  <script src="components/linklist/linklist.js"></script>
 
 
   <base target="_blank">
 </head>
-<body data-ng-app="fulgurator"  data-ng-csp="" >
+<body data-ng-app="fulgurator" data-ng-csp=""  >
+
+<!--
+<div data-ng-controller="FulguratorCtrl as vm">
+  {{vm.testvalue}}
+</div>
+
+<div data-ng-controller="LinksCtrl as vmLink">
+  {{vmLink.gugusvariable}}
+</div>
+-->
+
 
 <div class="">
   <div ng-view=""></div>

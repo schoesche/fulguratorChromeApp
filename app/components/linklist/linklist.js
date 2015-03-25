@@ -8,4 +8,6 @@ angular.module('fulgurator.linksModule',[]).
 
         vmLinksCtrl.gugusvariable = "ichbingugus";
 
+       /* vmLinksCtrl.rowCollection = SettingsCtrl.loadLinks();*/
+
     }]);
