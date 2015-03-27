@@ -6,12 +6,16 @@
     </div>
 
     <div class="addElement">
-        <select data-ng-options="group.groupname for group in vmSettings.rowCollection" data-ng-model="vmSettings.selectedGroupOption"></select>
+        <select data-ng-options="group.groupname for group in vmSettings.rowCollection" data-ng-show="" data-ng-model="vmSettings.selectedIndex"></select>
         <input data-ng-model="vmSettings.insert.name" placeholder="Set Name" class="input-sm form-control" type="text"/>
         <input data-ng-model="vmSettings.insert.tag" placeholder="Set Tags" class="input-sm form-control" type="text"/>
         <input data-ng-model="vmSettings.insert.link" placeholder="Set Link" class="input-sm form-control" type="text"/>
         <button class="btn btn-success" data-ng-click="vmSettings.addLink()">Add Link</button>
     </div>
+
+    Test selected group {{vmSettings.selectedIndex}}
+    <br>
+    Test selected index {{vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)}}
 
     <div class="row">
         <div data-ng-repeat="group in vmSettings.rowCollection">

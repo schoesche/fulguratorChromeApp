@@ -18,8 +18,8 @@ angular.module('fulgurator.settings',[])
         vmSettings.addLink = function() {
             console.log("insert name: " + vmSettings.insert.name);
             console.log("insert tag: " + vmSettings.insert.tag);
-            console.log("index: " + vmSettings.rowCollection.indexOf(vmSettings.selectedOptions));
-            vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedOptions)].grouplinks.push(vmSettings.insert);
+            console.log("index: " + vmSettings.rowCollection.indexOf(vmSettings.selectedIndex));
+            vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
             console.log("bravo insert");
             vmSettings.insert = {};
         };
