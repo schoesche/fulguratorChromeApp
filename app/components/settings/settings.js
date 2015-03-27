@@ -8,6 +8,7 @@ angular.module('fulgurator.settings',[])
         vmSettings.rowCollection = {};
 
         vmSettings.insertGroup = {};
+        vmSettings.insertGroup.name = "";
 
         vmSettings.insert = {};
         vmSettings.insert.name = "";
@@ -15,16 +16,18 @@ angular.module('fulgurator.settings',[])
         vmSettings.insert.link = "";
 
         vmSettings.addLink = function() {
-
+            vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedOptions)].grouplinks.push(vmSettings.insert);
+            vmSettings.insert = {};
         };
 
         vmSettings.addGroup = function() {
             var newGroup = {};
-            newGroup.groupname = vmSettings.insertGroup;
+            newGroup.groupname = vmSettings.insertGroup.name;
             newGroup.grouplinks = {};
             vmSettings.rowCollection.push(newGroup);
             console.log(vmSettings.rowCollection.length);
             vmSettings.insertGroup = {};
+
         };
 
         vmSettings.removeGroup = function(index) {
