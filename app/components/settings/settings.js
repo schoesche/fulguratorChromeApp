@@ -16,36 +16,29 @@ angular.module('fulgurator.settings',[])
         vmSettings.insert.link = "";
 
         vmSettings.addLink = function() {
-            console.log("insert name: " + vmSettings.insert.name);
-            console.log("insert tag: " + vmSettings.insert.tag);
-            console.log("index: " + vmSettings.rowCollection.indexOf(vmSettings.selectedIndex));
             vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
-            console.log("bravo insert");
             vmSettings.insert = {};
         };
 
         vmSettings.addGroup = function() {
             var newGroup = {};
             newGroup.groupname = vmSettings.insertGroup.name;
-            newGroup.grouplinks = {};
+            newGroup.grouplinks = [];
             vmSettings.rowCollection.push(newGroup);
-            console.log(vmSettings.rowCollection.length);
             vmSettings.insertGroup = {};
-
         };
 
         vmSettings.removeGroup = function(index) {
-            console.log("group :" + index);
             vmSettings.rowCollection.splice(vmSettings.rowCollection.indexOf(index), 1);
-        }
+        };
 
         vmSettings.removeLink = function(groupIndex , rowIndex) {
-            console.log("group :" + groupIndex + " row :" + rowIndex);
+
             vmSettings.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
         };
 
         vmSettings.loadLinks = function() {
-           vmSettings.rowCollection = linksModuleData.allLinks();
+            vmSettings.rowCollection = linksModuleData.allLinks();
             vmSettings.lengthRow = vmSettings.rowCollection.length;
         };
 
