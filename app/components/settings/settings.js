@@ -2,7 +2,7 @@
 
 angular.module('fulgurator.settings',['fulgurator.filemanipulator'])
 
-    .controller('SettingsCtrl',['linksModuleData', 'filemanipulatorCtrl', function(linksModuleData, filemanipulatorCtrl){
+    .controller('SettingsCtrl',['$q','linksModuleData', 'FileService', function($q, linksModuleData, FileService){
         var vmSettings = this;
 
         vmSettings.rowCollection = {};
@@ -43,11 +43,36 @@ angular.module('fulgurator.settings',['fulgurator.filemanipulator'])
         };
 
         vmSettings.writeLinksFile = function() {
-            filemanipulatorCtrl.writeLinksFile();
+            var jsonString = JSON.stringify(vmSettings.rowCollection);
+            FileService.saveFileAs(jsonString);
         };
 
+
+
+      /*  vmSettings.asyncReadFile = function () {
+            var deferred = $q.defer();
+            deferred.resolve(FileService.readFile());
+            return deferred.promise;
+        }*/
+
+
         vmSettings.readFile = function() {
-            filemanipulatorCtrl.readFile();
+
+            vmSettings.rowCollection = [];
+
+
+            var promiseReadFile = FileService.readFile();
+            promiseReadFile.then(function (result) {
+                console.log("result ->:" + result);
+                var links = JSON.parse(result);
+                /*var links = result;*/
+                console.log("links ->:" + links);
+                vmSettings.rowCollection = links;
+            }, function (reason) {
+                console.log("Failed ->:" + reason);
+            }, function (update) {
+                console.log("Got notification ->:" + update);
+            });
         };
 
         vmSettings.loadLinks();

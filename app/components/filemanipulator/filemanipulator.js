@@ -98,22 +98,34 @@ angular.module("fulgurator.filemanipulator", [])
 
         // for files, read the text content into the textarea
         function loadFileEntry(_chosenEntry) {
+            var deferred = $q.defer();
+
             var chosenEntry = _chosenEntry;
             var fileData = {};
             chosenEntry.file(function (file) {
+
                 readAsText(chosenEntry, function (result) {
                     console.log("text value" + result);
                     /*textarea.value = result;*/
                     fileData = result;
+
+                    deferred.resolve(fileData);
                 });
+
+
+
                 // Update display.
                 /* saveFileButton.disabled = false; // allow the user to save the content
                  displayEntryData(chosenEntry);*/
             });
-            return fileData;
+            console.log("loadFileEntry lest den text:" + fileData);
+
+            /*return fileData;*/
+            return deferred.promise;
         }
 
         function readAsText(fileEntry, callback) {
+
             fileEntry.file(function (file) {
                 var reader = new FileReader();
 
@@ -124,6 +136,7 @@ angular.module("fulgurator.filemanipulator", [])
 
                 reader.readAsText(file);
             });
+
         }
 
 
@@ -141,7 +154,7 @@ angular.module("fulgurator.filemanipulator", [])
         };
 
         factory.readFile = function () {
-            var deferred = $q.defer();
+            var deferred1 = $q.defer();
 
             var result = "gugus";
             var accepts = [{
@@ -149,22 +162,36 @@ angular.module("fulgurator.filemanipulator", [])
                 extensions: ['js', 'css', 'txt', 'html', 'xml', 'tsv', 'csv', 'rtf', 'json']
             }];
 
-            deferred.resolve(
-            chrome.fileSystem.chooseEntry({type: 'openFile', accepts: accepts}, function (theEntry) {
-                if (!theEntry) {
-                    console.log('No file selected.');
-                    return;
-                }
-                // use local storage to retain access to this file
-                chrome.storage.local.set({'chosenFile': chrome.fileSystem.retainEntry(theEntry)});
-                result = loadFileEntry(theEntry);
-                return result;
-            })
-            );
 
-            return deferred.promise;
+
+
+                    chrome.fileSystem.chooseEntry({type: 'openFile', accepts: accepts}, function (theEntry) {
+                        if (!theEntry) {
+                            console.log('No file selected.');
+                            return;
+                        }
+                        // use local storage to retain access to this file
+                        chrome.storage.local.set({'chosenFile': chrome.fileSystem.retainEntry(theEntry)});
+                        console.log("vor set result");
+                        loadFileEntry(theEntry).then(function(returnValue) {
+                            deferred1.resolve(
+                            result = returnValue
+
+                            );
+                            console.log("in der function loadFileEntry :" + result);
+                        });
+                        console.log("nach set result" + result);
+
+                       /* return result;*/
+                    });
+
+
+
+
+            return deferred1.promise;
 
         };
+
 
         return factory;
 
