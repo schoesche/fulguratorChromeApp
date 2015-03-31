@@ -4,7 +4,7 @@
  * Created by U116064 on 03.03.2015.
  */
 
-angular.module("Testchromplugin", [])
+angular.module("fulgurator.filemanipulator", [])
 
     .controller('filemanipulatorCtrl', ['$scope', '$q', 'FileService', function ($scope, $q, FileService) {
 

@@ -1,8 +1,8 @@
 'use strict;'
 
-angular.module('fulgurator.settings',[])
+angular.module('fulgurator.settings',['fulgurator.filemanipulator'])
 
-    .controller('SettingsCtrl',['linksModuleData', function(linksModuleData){
+    .controller('SettingsCtrl',['linksModuleData', 'filemanipulatorCtrl', function(linksModuleData, filemanipulatorCtrl){
         var vmSettings = this;
 
         vmSettings.rowCollection = {};
@@ -43,11 +43,11 @@ angular.module('fulgurator.settings',[])
         };
 
         vmSettings.writeLinksFile = function() {
-
+            filemanipulatorCtrl.writeLinksFile();
         };
 
         vmSettings.readFile = function() {
-
+            filemanipulatorCtrl.readFile();
         };
 
         vmSettings.loadLinks();
