@@ -47,27 +47,12 @@ angular.module('fulgurator.settings',['fulgurator.filemanipulator'])
             FileService.saveFileAs(jsonString);
         };
 
-
-
-      /*  vmSettings.asyncReadFile = function () {
-            var deferred = $q.defer();
-            deferred.resolve(FileService.readFile());
-            return deferred.promise;
-        }*/
-
-
         vmSettings.readFile = function() {
-
             vmSettings.rowCollection = [];
-
-
             var promiseReadFile = FileService.readFile();
             promiseReadFile.then(function (result) {
-                console.log("result ->:" + result);
-                var links = JSON.parse(result);
-                /*var links = result;*/
-                console.log("links ->:" + links);
-                vmSettings.rowCollection = links;
+                console.log("reading successful:" + result);
+                vmSettings.rowCollection = JSON.parse(result);
             }, function (reason) {
                 console.log("Failed ->:" + reason);
             }, function (update) {
