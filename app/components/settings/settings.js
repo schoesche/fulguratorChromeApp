@@ -1,11 +1,16 @@
+/** Created by Georg Achermann */
 'use strict;'
 
-angular.module('fulgurator.settings',['fulgurator.filemanipulator'])
+angular.module('fulgurator.settings',[
+    'fulgurator.filemanipulator',
+    'fulgurator.data'
+])
 
-    .controller('SettingsCtrl',['$q','linksModuleData', 'FileService', function($q, linksModuleData, FileService){
+    .controller('SettingsCtrl',['$scope','$q','linksModuleData', 'FileService', 'DataService', function($scope, $q, linksModuleData, FileService, DataService){
         var vmSettings = this;
 
         vmSettings.rowCollection = {};
+       /* vmSettings.rowCollection = $scope.fulgurator.rowCollection;*/
 
         vmSettings.insertGroup = {};
         vmSettings.insertGroup.name = "";
@@ -48,16 +53,20 @@ angular.module('fulgurator.settings',['fulgurator.filemanipulator'])
         };
 
         vmSettings.readFile = function() {
-            vmSettings.rowCollection = [];
-            var promiseReadFile = FileService.readFile();
-            promiseReadFile.then(function (result) {
-                console.log("reading successful:" + result);
-                vmSettings.rowCollection = JSON.parse(result);
-            }, function (reason) {
-                console.log("Failed ->:" + reason);
-            }, function (update) {
-                console.log("Got notification ->:" + update);
-            });
+          /*  DataService.readFile();
+            vmSettings.rowCollection = DataService.getRowCollection();
+            console.log("gugus" + DataService.getRowCollection());*/
+                        vmSettings.rowCollection = [];
+                        var promiseReadFile = FileService.readFile();
+                        promiseReadFile.then(function (result) {
+                            console.log("reading successful:" + result);
+                            vmSettings.rowCollection = JSON.parse(result);
+                            /*$scope.fulgurator.rowCollection = JSON.parse(result);*/
+                        }, function (reason) {
+                            console.log("Failed ->:" + reason);
+                        }, function (update) {
+                            console.log("Got notification ->:" + update);
+                        });
         };
 
         vmSettings.loadLinks();

@@ -1,3 +1,4 @@
+/** Created by Georg Achermann */
 'use strict';
 
 angular.module('fulgurator', [
@@ -5,7 +6,8 @@ angular.module('fulgurator', [
     'smart-table',
     'fulgurator.linksModule',
     'fulgurator.linksModuleData',
-    'fulgurator.settings'
+    'fulgurator.settings',
+    'fulgurator.data'
 ]).
 
     config(['$routeProvider', function ($routeProvider) {
@@ -22,34 +24,13 @@ angular.module('fulgurator', [
 
             }).
             otherwise({redirectTo: ("/linklist")});
-    }]).
-
-    /*controller('FulguratorCtrl', ['$scope', '$filter', '$http', 'SettingsCtrl', function (scope, filter, http, SettingsCtrl) {*/
-    controller('FulguratorCtrl', ['$scope', '$filter', function (scope, filter) {
-
-        var vm = this;
-        vm.testvalue = 'ich bin ein testvalue';
-
-        vm.loadLinkFile = function () {
-            /*
-             http.get('links.json')
-             .then(function(res){
-             scope.rowCollection = res.data;
-             });
-             */
+    }])
 
 
-            /*vm.rowCollection = linksModule.allLinks();*/
+    .controller('FulguratorCtrl', ['$scope', function ($scope) {
 
-
-  /*          vm.rowCollection = SettingsCtrl.loadLinks();*/
-                vm.testvalue = 'ist das toll';
-
-        };
-
-        vm.loadLinkFile();
-
-
+        $scope.fulgurator = {};
+        $scope.fulgurator.rowCollection = {};
 
     }]);
 

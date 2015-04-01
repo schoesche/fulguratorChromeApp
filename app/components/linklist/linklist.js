@@ -3,8 +3,10 @@
 angular.module('fulgurator.linksModule',['fulgurator.linksModuleData'])
 
 
-    .controller('LinksCtrl',['linksModuleData', function(linksModuleData){
+    .controller('LinksCtrl',['$scope','linksModuleData', function($scope, linksModuleData){
         var vmLinksCtrl = this;
+
+        /*vmLinksCtrl.rowCollection = $scope.fulgurator.rowCollection;*/
 
         vmLinksCtrl.rowCollection = {};
 

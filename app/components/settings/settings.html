@@ -1,10 +1,10 @@
 <div data-ng-controller="SettingsCtrl as vmSettings">
 
 
-    <div class="loadFile">
+    <div class="loadSaveFile">
         <ul>
-            <li><button class="btn btn-success" data-ng-click="vmSettings.readFile()">Load Data</button></li>
-            <li><button class="btn btn-success" data-ng-click="vmSettings.writeLinksFile()">Save Data</button></li>
+            <button class="btn btn-success" data-ng-click="vmSettings.readFile()">Load Data</button>
+            <button class="btn btn-success" data-ng-click="vmSettings.writeLinksFile()">Save Data</button>
         </ul>
     </div>
 
@@ -23,18 +23,14 @@
         <button class="btn btn-success" data-ng-click="vmSettings.addLink()">Add Link</button>
     </div>
 
-    Test selected group {{vmSettings.selectedIndex}}
-    <br>
-    Test selected index {{vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)}}
-
     <div class="row">
         <div data-ng-repeat="group in vmSettings.rowCollection">
 
             <table ng-class="['linkTable-' + $index]" st-table="rowCollection" class="table table-striped">
                 <thead class="tableTitle">
-                <!--<tr>
+                <tr>
                 <th st-sort="name">{{group.groupname}}</th>
-                </tr>-->
+                </tr>
                 <tr>
                     <th st-sort="name">name</th>
                     <th st-sort="link">link</th>
