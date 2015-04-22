@@ -20,6 +20,8 @@ angular.module('fulgurator.settings',[
         vmSettings.insert.tag = "";
         vmSettings.insert.link = "";
 
+        vmSettings.testHalloWelt = DataService.getHelloWorld();
+
         vmSettings.addLink = function() {
             vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
             vmSettings.insert = {};

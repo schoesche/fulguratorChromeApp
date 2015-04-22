@@ -5,7 +5,12 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
 
     .factory('DataService', ['$q','linksModuleData', 'FileService', function($q, linksModuleData, FileService){
         var factory = {};
+        factory.testHalloWelt = 'Hello World, I love you!';
         factory.rowCollection = {};
+
+        factory.getHelloWorld = function() {
+            return factory.testHalloWelt;
+        }
 
         factory.addLink = function(selectedGroupIndex, addLink) {
             factory.rowCollection[factory.rowCollection.indexOf(selectedGroupIndex)].grouplinks.push(addLink);
