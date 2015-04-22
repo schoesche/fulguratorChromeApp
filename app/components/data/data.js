@@ -12,13 +12,22 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
             return factory.testHalloWelt;
         }
 
-        factory.addLink = function(selectedGroupIndex, addLink) {
-            factory.rowCollection[factory.rowCollection.indexOf(selectedGroupIndex)].grouplinks.push(addLink);
-        };
+        factory.setRowCollection = function(rowCollection) {
+            factory.rowCollection = rowCollection;
+            return factory.rowCollection;
+        }
 
         factory.addGroup = function(newGroup) {
             factory.rowCollection.push(newGroup);
         };
+
+        factory.addLink = function(selectedGroupIndex, addLink) {
+            factory.rowCollection[factory.rowCollection.indexOf(selectedGroupIndex)].grouplinks.push(addLink);
+        };
+
+/*
+
+
 
         factory.removeGroup = function(index) {
             factory.rowCollection.splice(factory.rowCollection.indexOf(index), 1);
@@ -59,7 +68,7 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
         }
 
         // Load dummy data
-        factory.loadLinks();
+        factory.loadLinks();*/
 
         return factory;
     }]);

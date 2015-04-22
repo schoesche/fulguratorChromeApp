@@ -25,6 +25,8 @@ angular.module('fulgurator.settings',[
         vmSettings.addLink = function() {
             vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
             vmSettings.insert = {};
+
+
         };
 
         vmSettings.addGroup = function() {
@@ -32,6 +34,9 @@ angular.module('fulgurator.settings',[
             newGroup.groupname = vmSettings.insertGroup.name;
             newGroup.grouplinks = [];
             vmSettings.rowCollection.push(newGroup);
+
+            DataService.addGroup(newGroup);
+
             vmSettings.insertGroup = {};
         };
 
@@ -40,13 +45,16 @@ angular.module('fulgurator.settings',[
         };
 
         vmSettings.removeLink = function(groupIndex , rowIndex) {
-
             vmSettings.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
+
+
         };
 
         vmSettings.loadLinks = function() {
             vmSettings.rowCollection = linksModuleData.allLinks();
             vmSettings.lengthRow = vmSettings.rowCollection.length;
+
+            DataService.setRowCollection(linksModuleData.allLinks());
         };
 
         vmSettings.writeLinksFile = function() {
