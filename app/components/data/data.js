@@ -10,12 +10,16 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
 
         factory.getHelloWorld = function() {
             return factory.testHalloWelt;
-        }
+        };
 
         factory.setRowCollection = function(rowCollection) {
             factory.rowCollection = rowCollection;
             return factory.rowCollection;
-        }
+        };
+
+        factory.getRowCollection = function () {
+            return factory.rowCollection;
+        };
 
         factory.addGroup = function(newGroup) {
             factory.rowCollection.push(newGroup);
@@ -25,10 +29,6 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
             factory.rowCollection[factory.rowCollection.indexOf(selectedGroupIndex)].grouplinks.push(addLink);
         };
 
-/*
-
-
-
         factory.removeGroup = function(index) {
             factory.rowCollection.splice(factory.rowCollection.indexOf(index), 1);
         };
@@ -36,6 +36,13 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
         factory.removeLink = function(groupIndex , rowIndex) {
             factory.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
         };
+
+/*
+
+
+
+
+
 
         // Load dummy data from dummy module
         // linksModuleData is just to see something
@@ -63,9 +70,7 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
 
         };
 
-        factory.getRowCollection = function () {
-            return factory.rowCollection;
-        }
+
 
         // Load dummy data
         factory.loadLinks();*/
