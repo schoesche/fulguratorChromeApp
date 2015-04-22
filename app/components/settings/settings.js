@@ -9,7 +9,8 @@ angular.module('fulgurator.settings', [
     .controller('SettingsCtrl', ['$scope', '$q', 'linksModuleData', 'FileService', 'DataService', function ($scope, $q, linksModuleData, FileService, DataService) {
         var vmSettings = this;
 
-        vmSettings.rowCollection = {};
+        //vmSettings.rowCollection = {};
+        vmSettings.rowCollection = DataService.getRowCollection();
         /* vmSettings.rowCollection = $scope.fulgurator.rowCollection;*/
 
         vmSettings.insertGroup = {};
@@ -23,7 +24,10 @@ angular.module('fulgurator.settings', [
         vmSettings.testHalloWelt = DataService.getHelloWorld();
 
         vmSettings.addLink = function () {
-            vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
+            //vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
+
+            DataService.addLink(vmSettings.selectedIndex, vmSettings.insert);
+
             vmSettings.insert = {};
 
 
@@ -33,7 +37,7 @@ angular.module('fulgurator.settings', [
             var newGroup = {};
             newGroup.groupname = vmSettings.insertGroup.name;
             newGroup.grouplinks = [];
-            vmSettings.rowCollection.push(newGroup);
+            //vmSettings.rowCollection.push(newGroup);
 
             DataService.addGroup(newGroup);
 
@@ -41,27 +45,27 @@ angular.module('fulgurator.settings', [
         };
 
         vmSettings.removeGroup = function (index) {
-            vmSettings.rowCollection.splice(vmSettings.rowCollection.indexOf(index), 1);
+            //vmSettings.rowCollection.splice(vmSettings.rowCollection.indexOf(index), 1);
 
             DataService.removeGroup(index);
         };
 
         vmSettings.removeLink = function (groupIndex, rowIndex) {
-            vmSettings.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
+            //vmSettings.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
 
             DataService.removeLink(groupIndex, rowIndex);
         };
 
         vmSettings.loadLinks = function () {
-            vmSettings.rowCollection = linksModuleData.allLinks();
-            vmSettings.lengthRow = vmSettings.rowCollection.length;
+            //vmSettings.rowCollection = linksModuleData.allLinks();
+            //vmSettings.lengthRow = vmSettings.rowCollection.length;
 
             DataService.setRowCollection(linksModuleData.allLinks());
         };
 
         vmSettings.writeLinksFile = function () {
-            //DataService.getRowCollection();
-            var jsonString = JSON.stringify(vmSettings.rowCollection);
+            var jsonString = JSON.stringify(DataService.getRowCollection());
+            //var jsonString = JSON.stringify(vmSettings.rowCollection);
             FileService.saveFileAs(jsonString);
         };
 
@@ -69,13 +73,13 @@ angular.module('fulgurator.settings', [
             /*  DataService.readFile();
              vmSettings.rowCollection = DataService.getRowCollection();
              console.log("gugus" + DataService.getRowCollection());*/
-            vmSettings.rowCollection = [];
+            //vmSettings.rowCollection = [];
             var promiseReadFile = FileService.readFile();
             promiseReadFile.then(function (result) {
                 console.log("reading successful:" + result);
-                vmSettings.rowCollection = JSON.parse(result);
+                //vmSettings.rowCollection = JSON.parse(result);
 
-                DataService.setRowCollection(vmSettings.rowCollection);
+                DataService.setRowCollection(JSON.parse(result));
                 /*$scope.fulgurator.rowCollection = JSON.parse(result);*/
             }, function (reason) {
                 console.log("Failed ->:" + reason);

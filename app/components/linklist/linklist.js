@@ -15,6 +15,10 @@ angular.module('fulgurator.linksModule',[
 
         vmLinksCtrl.getRowCollectionDataService = DataService.getRowCollection();
 
+     /*   if (vmLinksCtrl.getRowCollectionDataService.isEmpty()) {
+            vmLinksCtrl.setRowCollection(linksModuleData.allLinks());
+        }*/
+
         vmLinksCtrl.loadLinkFile = function () {
 
             vmLinksCtrl.rowCollection = linksModuleData.allLinks();
