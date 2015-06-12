@@ -24,6 +24,7 @@ angular.module('fulgurator', [
 
             }).
             otherwise({redirectTo: ("/linklist")});
+
     }])
 
 

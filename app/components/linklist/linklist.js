@@ -2,7 +2,7 @@
 
 angular.module('fulgurator.linksModule',[
     'fulgurator.linksModuleData',
-'fulgurator.data'
+    'fulgurator.data'
 ])
 
 
@@ -15,8 +15,14 @@ angular.module('fulgurator.linksModule',[
 
         vmLinksCtrl.getRowCollectionDataService = DataService.getRowCollection();
 
-     /*   if (vmLinksCtrl.getRowCollectionDataService.isEmpty()) {
-            vmLinksCtrl.setRowCollection(linksModuleData.allLinks());
+        console.log("getRowCollectionDataService1:" + (vmLinksCtrl.getRowCollectionDataService == {}));
+        console.log("getRowCollectionDataService2:" + (vmLinksCtrl.getRowCollectionDataService == []));
+        console.log("getRowCollectionDataService:" + vmLinksCtrl.getRowCollectionDataService);
+        console.log("linksModuleData.allLinks():" + linksModuleData.allLinks());
+
+    /*    if (DataService.getRowCollectionDataService  hier was rein) {
+            console.log("asdfasdfasdfaasdfsadf");
+            DataService.setRowCollection(linksModuleData.allLinks());
         }*/
 
         vmLinksCtrl.loadLinkFile = function () {
@@ -27,6 +33,7 @@ angular.module('fulgurator.linksModule',[
 
         vmLinksCtrl.loadLinkFile();
 
-
+        console.log("getRowCollectionDataService loadLinkFile:" + vmLinksCtrl.rowCollection[0].groupname);
+        console.log("getRowCollectionDataService loadLinkFile:" + vmLinksCtrl.rowCollection[1].groupname);
 
     }]);
