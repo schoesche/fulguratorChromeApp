@@ -1,33 +1,25 @@
 'use strict;'
 
 angular.module('fulgurator.linksModule',[
-    'fulgurator.linksModuleData',
     'fulgurator.data'
 ])
 
 
-    .controller('LinksCtrl',['$scope','linksModuleData', 'DataService', function($scope, linksModuleData, DataService){
+    .controller('LinksCtrl',['$scope', 'dataService',  function($scope, dataService  ){
         var vmLinksCtrl = this;
-
-        /*vmLinksCtrl.rowCollection = $scope.fulgurator.rowCollection;*/
 
         vmLinksCtrl.rowCollection = {};
 
-        vmLinksCtrl.getRowCollectionDataService = DataService.getRowCollection();
+        vmLinksCtrl.getRowCollectionDataService = dataService.getRowCollection();
 
         console.log("getRowCollectionDataService1:" + (vmLinksCtrl.getRowCollectionDataService == {}));
         console.log("getRowCollectionDataService2:" + (vmLinksCtrl.getRowCollectionDataService == []));
         console.log("getRowCollectionDataService:" + vmLinksCtrl.getRowCollectionDataService);
-        console.log("linksModuleData.allLinks():" + linksModuleData.allLinks());
-
-    /*    if (DataService.getRowCollectionDataService  hier was rein) {
-            console.log("asdfasdfasdfaasdfsadf");
-            DataService.setRowCollection(linksModuleData.allLinks());
-        }*/
+        console.log("linksModuleData.allLinks():" + dataService.loadDefaultLinks());
 
         vmLinksCtrl.loadLinkFile = function () {
 
-            vmLinksCtrl.rowCollection = linksModuleData.allLinks();
+            vmLinksCtrl.rowCollection = dataService.loadDefaultLinks();
 
         };
 
@@ -37,3 +29,5 @@ angular.module('fulgurator.linksModule',[
         console.log("getRowCollectionDataService loadLinkFile:" + vmLinksCtrl.rowCollection[1].groupname);
 
     }]);
+
+

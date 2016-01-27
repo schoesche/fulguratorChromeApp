@@ -6,11 +6,11 @@ angular.module('fulgurator.settings', [
     'fulgurator.data'
 ])
 
-    .controller('SettingsCtrl', ['$scope', '$q', 'linksModuleData', 'FileService', 'DataService', function ($scope, $q, linksModuleData, FileService, DataService) {
+    .controller('SettingsCtrl', ['$scope', '$q',  'FileService', 'dataService', function ($scope, $q,  FileService, dataService) {
         var vmSettings = this;
 
-        //vmSettings.rowCollection = {};
-        vmSettings.rowCollection = DataService.getRowCollection();
+        vmSettings.rowCollection = {};
+        vmSettings.rowCollection = dataService.getRowCollection();
         /* vmSettings.rowCollection = $scope.fulgurator.rowCollection;*/
 
         vmSettings.insertGroup = {};
@@ -21,12 +21,14 @@ angular.module('fulgurator.settings', [
         vmSettings.insert.tag = "";
         vmSettings.insert.link = "";
 
-        vmSettings.testHalloWelt = DataService.getHelloWorld();
+        vmSettings.testHalloWelt = dataService.getHelloWorld();
 
         vmSettings.addLink = function () {
             //vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
 
-            DataService.addLink(vmSettings.selectedIndex, vmSettings.insert);
+            console.log("addLink", vmSettings.selectedIndex);
+
+            dataService.addLink(vmSettings.selectedIndex, vmSettings.insert);
 
             vmSettings.insert = {};
 
@@ -37,9 +39,8 @@ angular.module('fulgurator.settings', [
             var newGroup = {};
             newGroup.groupname = vmSettings.insertGroup.name;
             newGroup.grouplinks = [];
-            //vmSettings.rowCollection.push(newGroup);
 
-            DataService.addGroup(newGroup);
+            dataService.addGroup(newGroup);
 
             vmSettings.insertGroup = {};
         };
@@ -47,39 +48,40 @@ angular.module('fulgurator.settings', [
         vmSettings.removeGroup = function (index) {
             //vmSettings.rowCollection.splice(vmSettings.rowCollection.indexOf(index), 1);
 
-            DataService.removeGroup(index);
+            dataService.removeGroup(index);
         };
 
         vmSettings.removeLink = function (groupIndex, rowIndex) {
             //vmSettings.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
 
-            DataService.removeLink(groupIndex, rowIndex);
+            dataService.removeLink(groupIndex, rowIndex);
         };
 
         vmSettings.loadLinks = function () {
             //vmSettings.rowCollection = linksModuleData.allLinks();
             //vmSettings.lengthRow = vmSettings.rowCollection.length;
 
-            DataService.setRowCollection(linksModuleData.allLinks());
+            dataService.setRowCollection(dataService.loadDefaultLinks());
+            //vmSettings.rowCollection = dataService.getRowCollection();
         };
 
         vmSettings.writeLinksFile = function () {
-            var jsonString = JSON.stringify(DataService.getRowCollection());
+            var jsonString = JSON.stringify(dataService.getRowCollection());
             //var jsonString = JSON.stringify(vmSettings.rowCollection);
             FileService.saveFileAs(jsonString);
         };
 
         vmSettings.readFile = function () {
-            /*  DataService.readFile();
-             vmSettings.rowCollection = DataService.getRowCollection();
-             console.log("gugus" + DataService.getRowCollection());*/
+            /*  dataService.readFile();
+             vmSettings.rowCollection = dataService.getRowCollection();
+             console.log("gugus" + dataService.getRowCollection());*/
             //vmSettings.rowCollection = [];
             var promiseReadFile = FileService.readFile();
             promiseReadFile.then(function (result) {
                 console.log("reading successful:" + result);
                 //vmSettings.rowCollection = JSON.parse(result);
 
-                DataService.setRowCollection(JSON.parse(result));
+                dataService.setRowCollection(JSON.parse(result));
                 /*$scope.fulgurator.rowCollection = JSON.parse(result);*/
             }, function (reason) {
                 console.log("Failed ->:" + reason);

@@ -1,12 +1,54 @@
 /** Created by Georg Achermann */
 'use strict;'
 
-angular.module('fulgurator.data',['fulgurator.filemanipulator'])
+angular.module('fulgurator.data',[
+    'fulgurator.filemanipulator'])
 
-    .factory('DataService', ['$q','linksModuleData', 'FileService', function($q, linksModuleData, FileService){
+
+
+    .factory('dataService', ['$q', 'FileService', function($q,  FileService){
         var factory = {};
         factory.testHalloWelt = 'Hello World, I love you!';
+
+
+        var rowCollectionDummy = [
+            {
+                "groupname": "Allgemein",
+                "grouplinks": [
+                    {
+                        "name": "google",
+                        "tag": "google 2",
+                        "link": "https://www.google.ch"
+                    },
+                    {
+                        "name": "google",
+                        "tag": "google 1",
+                        "link": "https://www.google.ch"
+                    }
+                ]
+            },
+            {
+                "groupname": "Development",
+                "grouplinks": [
+                    {
+                        "name": "google",
+                        "tag": "google 3",
+                        "link": "https://www.google.ch"
+                    },
+                    {
+                        "name": "google",
+                        "tag": "google 2",
+                        "link": "https://www.google.ch"
+                    }
+                ]
+            }
+        ];
+
+
+        console.log("data js rowCollection wird ");
         factory.rowCollection = {};
+        factory.rowCollection = rowCollectionDummy;
+
 
         factory.getHelloWorld = function() {
             return factory.testHalloWelt;
@@ -22,10 +64,12 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
         };
 
         factory.addGroup = function(newGroup) {
+            console.log("add group", newGroup);
             factory.rowCollection.push(newGroup);
         };
 
         factory.addLink = function(selectedGroupIndex, addLink) {
+            console.log("add link selectedGroupIndex", selectedGroupIndex);
             factory.rowCollection[factory.rowCollection.indexOf(selectedGroupIndex)].grouplinks.push(addLink);
         };
 
@@ -37,43 +81,9 @@ angular.module('fulgurator.data',['fulgurator.filemanipulator'])
             factory.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
         };
 
-/*
-
-
-
-
-
-
-        // Load dummy data from dummy module
-        // linksModuleData is just to see something
-        factory.loadLinks = function() {
-            factory.rowCollection = linksModuleData.allLinks();
+        factory.loadDefaultLinks = function() {
+            return factory.rowCollection;
         };
 
-        factory.writeLinksFile = function() {
-            var jsonString = JSON.stringify(factory.rowCollection);
-            FileService.saveFileAs(jsonString);
-        };
-
-        factory.readFile = function() {
-            factory.rowCollection = [];
-            var promiseReadFile = FileService.readFile();
-            promiseReadFile.then(function (result) {
-                console.log("reading successful:" + result);
-                factory.rowCollection = JSON.parse(result);
-
-            }, function (reason) {
-                console.log("Failed ->:" + reason);
-            }, function (update) {
-                console.log("Got notification ->:" + update);
-            });
-
-        };
-
-
-
-        // Load dummy data
-        factory.loadLinks();*/
-
-        return factory;
+    return factory;
     }]);
