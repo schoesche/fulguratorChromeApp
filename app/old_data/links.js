@@ -3,6 +3,10 @@
 
 angular.module('fulgurator.linksModuleData', [])
 
+//    .controller('linksModuleData', ['$q', function($q){
+        // 25.01.2016 test , kann man später wieder geloescht werden
+  //  }])
+
 
 
     .value('linksModuleData', {
