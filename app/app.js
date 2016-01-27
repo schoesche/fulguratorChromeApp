@@ -42,40 +42,6 @@ angular.module('fulgurator', [
     }]);
 
 
-    /**
-
-    .config(['$routeProvider',  'dataService', function ($routeProvider,  dataService) {
-        dataService.setRowCollection(dataService.loadDefaultLinks());
-        $routeProvider.
-            when('/linklist',
-            {
-                templateUrl: 'components/linklist/linklist.html',
-                controller: 'LinksCtrl as vmLinksCtrl'
-            }).
-            when('/settings',
-            {
-                templateUrl: 'components/settings/settings.html',
-                controller: 'SettingsCtrl as vmSettings'
-
-            }).
-            otherwise({redirectTo: ("/linklist")});
-
-    }])
-
-
-    .controller('FulguratorCtrl', ['$scope',  'dataService', function ($scope,  dataService) {
-
-        var vmLinksCtrl = this;
-
-        $scope.fulgurator = {};
-        $scope.fulgurator.rowCollection = {};
-
-        console.log("start :" + (vmLinksCtrl.getRowCollectionDataService == {}));
-        dataService.setRowCollection(dataService.loadDefaultLinks());
-        $scope.fulgurator.rowCollection = dataService.loadDefaultLinks();
-
-    }]);
-     */
 
 
 
