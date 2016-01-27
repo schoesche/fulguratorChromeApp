@@ -11,7 +11,6 @@ angular.module('fulgurator.settings', [
 
         vmSettings.rowCollection = {};
         vmSettings.rowCollection = dataService.getRowCollection();
-        /* vmSettings.rowCollection = $scope.fulgurator.rowCollection;*/
 
         vmSettings.insertGroup = {};
         vmSettings.insertGroup.name = "";
@@ -24,15 +23,9 @@ angular.module('fulgurator.settings', [
         vmSettings.testHalloWelt = dataService.getHelloWorld();
 
         vmSettings.addLink = function () {
-            //vmSettings.rowCollection[vmSettings.rowCollection.indexOf(vmSettings.selectedIndex)].grouplinks.push(vmSettings.insert);
-
             console.log("addLink", vmSettings.selectedIndex);
-
             dataService.addLink(vmSettings.selectedIndex, vmSettings.insert);
-
             vmSettings.insert = {};
-
-
         };
 
         vmSettings.addGroup = function () {
@@ -46,23 +39,15 @@ angular.module('fulgurator.settings', [
         };
 
         vmSettings.removeGroup = function (index) {
-            //vmSettings.rowCollection.splice(vmSettings.rowCollection.indexOf(index), 1);
-
             dataService.removeGroup(index);
         };
 
         vmSettings.removeLink = function (groupIndex, rowIndex) {
-            //vmSettings.rowCollection[groupIndex].grouplinks.splice(rowIndex, 1);
-
             dataService.removeLink(groupIndex, rowIndex);
         };
 
         vmSettings.loadLinks = function () {
-            //vmSettings.rowCollection = linksModuleData.allLinks();
-            //vmSettings.lengthRow = vmSettings.rowCollection.length;
-
             dataService.setRowCollection(dataService.loadDefaultLinks());
-            //vmSettings.rowCollection = dataService.getRowCollection();
         };
 
         vmSettings.writeLinksFile = function () {
