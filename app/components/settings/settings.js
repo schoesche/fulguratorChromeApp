@@ -47,7 +47,7 @@ angular.module('fulgurator.settings', [
         };
 
         vmSettings.loadLinks = function () {
-            dataService.setRowCollection(dataService.loadDefaultLinks());
+            vmSettings.rowCollection = dataService.getRowCollection();
         };
 
         vmSettings.writeLinksFile = function () {
@@ -67,6 +67,7 @@ angular.module('fulgurator.settings', [
                 //vmSettings.rowCollection = JSON.parse(result);
 
                 dataService.setRowCollection(JSON.parse(result));
+                vmSettings.loadLinks();
                 /*$scope.fulgurator.rowCollection = JSON.parse(result);*/
             }, function (reason) {
                 console.log("Failed ->:" + reason);
@@ -74,7 +75,5 @@ angular.module('fulgurator.settings', [
                 console.log("Got notification ->:" + update);
             });
         };
-
-        vmSettings.loadLinks();
 
     }]);

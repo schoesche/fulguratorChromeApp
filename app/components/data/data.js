@@ -55,7 +55,10 @@ angular.module('fulgurator.data',[
         };
 
         factory.setRowCollection = function(rowCollection) {
+            console.log("data js setRowCollection rowCollection1", factory.rowCollection);
+            console.log("data js setRowCollection", rowCollection);
             factory.rowCollection = rowCollection;
+            console.log("data js setRowCollection rowCollection2", factory.rowCollection);
             return factory.rowCollection;
         };
 
