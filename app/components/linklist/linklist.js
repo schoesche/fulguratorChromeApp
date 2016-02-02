@@ -1,8 +1,8 @@
 'use strict;'
 
 angular.module('fulgurator.linksModule',[
-    'fulgurator.data'
-])
+        'fulgurator.data'
+    ])
 
 
     .controller('LinksCtrl',['$scope', 'dataService',  function($scope, dataService  ){

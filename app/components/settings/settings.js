@@ -2,9 +2,9 @@
 'use strict;'
 
 angular.module('fulgurator.settings', [
-    'fulgurator.filemanipulator',
-    'fulgurator.data'
-])
+        'fulgurator.filemanipulator',
+        'fulgurator.data'
+    ])
 
     .controller('SettingsCtrl', ['$scope', '$q',  'FileService', 'dataService', function ($scope, $q,  FileService, dataService) {
         var vmSettings = this;
