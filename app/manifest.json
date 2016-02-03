@@ -1,5 +1,5 @@
 {
-   "name": "Fulgurator",
+  "name": "Fulgurator",
   "description": "Link-Manager Chrome App",
   "version": "0.0.1",
 
@@ -16,13 +16,6 @@
     "fileSystem",
     "unlimitedStorage"
   ],
-  "file_handlers": {
-    "text": {
-      "types": [
-        "text"
-      ]
-    }
-  },
   "icons": {
     "128": "icon_128.png"
   }
