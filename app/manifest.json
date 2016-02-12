@@ -1,15 +1,13 @@
 {
-  "name": "Fulgurator",
-  "description": "Link-Manager Chrome App",
-  "version": "0.0.1",
-
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
   "manifest_version": 2,
-
-    "app": {
-      "background": {
-        "scripts": ["background.js"]
-      }
-    },
+  "name": "Fulgurator",
+  "description": "Bookmark-Manager Chrome App",
+  "version": "0.0.1",
   "permissions": [
     {"fileSystem": ["write", "retainEntries", "directory"]},
     "storage",
@@ -18,6 +16,8 @@
   ],
   "icons": {
     "128": "icon_128.png"
-  }
+  },
+  "author": "Georg Achermann",
+  "offline_enabled": true
 
 }
